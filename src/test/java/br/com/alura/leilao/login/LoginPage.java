@@ -8,6 +8,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import br.com.alura.leilao.leiloes.LeiloesPage;
+
 public class LoginPage {
 	
 	private static final String URL_LOGIN = "http://localhost:8080/login";
@@ -33,8 +35,9 @@ public class LoginPage {
 
 	}
 
-	public void efetuaLogin() {
+	public LeiloesPage efetuaLogin() {
 		browser.findElement(By.id("login-form")).submit();
+		return new LeiloesPage(browser);
 	}
 
 	public boolean isPaginaDeLogin() {

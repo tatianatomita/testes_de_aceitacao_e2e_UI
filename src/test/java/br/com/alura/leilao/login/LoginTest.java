@@ -40,7 +40,7 @@ public class LoginTest {
 		
 		Assert.assertTrue(paginaDeLogin.isPaginaDeLoginComDadosInvalidos());
 		Assert.assertNull(paginaDeLogin.getNomeUsuarioLogado());
-		Assert.assertTrue(paginaDeLogin.contemTexto("usuário e senha inválidos"));
+		Assert.assertTrue(paginaDeLogin.contemTexto("Usuário e senha inválidos"));
 	}
 	
 	@Test
