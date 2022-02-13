@@ -8,25 +8,16 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import br.com.alura.leilao.PageObject;
 import br.com.alura.leilao.leiloes.LeiloesPage;
 
-public class LoginPage {
-	
-	private static final String URL_LOGIN = "http://localhost:8080/login";
-	private WebDriver browser;
-	
-	
-	public LoginPage() {
-		
-			System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-			this.browser = new ChromeDriver();
-			this.browser.navigate().to(URL_LOGIN);
-			
-		
-	}
+public class LoginPage extends PageObject {
 
-	public void fechar() {
-		this.browser.quit();
+	private static final String URL_LOGIN = "http://localhost:8080/login";
+
+	public LoginPage() {
+		super(null);
+		this.browser.navigate().to(URL_LOGIN);
 	}
 
 	public void preencherFormularioDeLogin(String username, String password) {
@@ -48,9 +39,9 @@ public class LoginPage {
 		try {
 			return browser.findElement(By.id("usurario-logado")).getText();
 		} catch (NoSuchElementException e) {
-			return null;	
+			return null;
 		}
-		
+
 	}
 
 	public void navegaParaPaginaDeLances() {
@@ -64,7 +55,5 @@ public class LoginPage {
 	public boolean isPaginaDeLoginComDadosInvalidos() {
 		return browser.getCurrentUrl().equals(URL_LOGIN + "?error");
 	}
-	
-	
 
 }
