@@ -1,6 +1,11 @@
 package br.com.alura.leilao;
 
+import static org.mockito.Mockito.timeout;
+
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriver.Timeouts;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class PageObject {
@@ -13,6 +18,7 @@ public class PageObject {
 		} else {
 			this.browser = browser;
 		}
+		this.browser.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
 	}
 
